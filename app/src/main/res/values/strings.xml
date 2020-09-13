@@ -19,6 +19,6 @@
     <string name="btnCreate">Guardar</string>
     <string name="homeMenu">Inicio</string>
     <string name="createTitle">Crear prestamo</string>
-    <string name="listTitle">Libros prestados</string>
+    <string name="listTitle">Prestamos</string>
     <string name="userTitle">Usuario</string>
 </resources>
