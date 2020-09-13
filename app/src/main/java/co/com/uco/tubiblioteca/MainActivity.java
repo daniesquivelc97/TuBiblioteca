@@ -1,52 +1,58 @@
 package co.com.uco.tubiblioteca;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.ViewFlipper;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
+
+    ViewFlipper v_flipper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        if(savedInstanceState == null) {
-            getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, new HomePage()).commit();
-        }
+        ImageButton btnCreateLoan = findViewById(R.id.nav_createPage);
 
-        BottomNavigationView bottomNavigationView = findViewById(R.id.nav_bar);
-        bottomNavigationView.setOnNavigationItemSelectedListener(navigationItemSelectedListener);
+        btnCreateLoan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), CreateLoanActivity.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
+        int images[] = {R.drawable.harry, R.drawable.anillos, R.drawable.after};
+        v_flipper = findViewById(R.id.v_flipper);
+
+        for (int image: images) {
+            flipperImages(image);
+        }
     }
 
-    private BottomNavigationView.OnNavigationItemSelectedListener navigationItemSelectedListener =
-            new BottomNavigationView.OnNavigationItemSelectedListener() {
-                @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                    Fragment fragment = null;
+    public void flipperImages(int image) {
+        ImageView imageView = new ImageView(this);
+        imageView.setBackgroundResource(image);
 
-                    switch (item.getItemId()) {
-                        case R.id.nav_home:
-                            fragment = new HomePage();
-                            break;
-                        case R.id.nav_create:
-                            fragment = new CreateBookPage();
-                            break;
-                        case R.id.nav_list:
-                            fragment = new ListBookPage();
-                            break;
-                        case R.id.nav_profile:
-                            fragment = new UserPage();
-                            break;
-                    }
+        v_flipper.addView(imageView);
+        v_flipper.setFlipInterval(2000);
+        v_flipper.setAutoStart(true);
 
-                    getSupportFragmentManager().beginTransaction().replace(R.id.frameLayout, fragment).commit();
-                    return true;
-                }
-            };
+        v_flipper.setInAnimation(this, android.R.anim.slide_out_right);
+        v_flipper.setOutAnimation(this, android.R.anim.slide_out_right);
+    }
+
 }
