@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Tu Biblioteca</string>
+    <string name="titleHome">Inicio</string>
+    <string name="titleCreate">Crear prestamo</string>
+    <string name="titleList">Libros prestados</string>
+    <string name="titlePerson">Usuario</string>
+    <string name="user">Usuario</string>
+    <string name="password">Password</string>
+    <string name="btnLogin">Ingresar</string>
+    <string name="btnRegister">Registrarse</string>
 </resources>
