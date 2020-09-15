@@ -26,11 +26,29 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ImageButton btnCreateLoan = findViewById(R.id.nav_createPage);
+        ImageButton btnPrestamos = findViewById(R.id.nav_listPage);
+        ImageButton btnUsuario = findViewById(R.id.nav_userPage);
 
         btnCreateLoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), CreateLoanActivity.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
+        btnPrestamos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), ListaLibroActivity.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
+        btnUsuario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), UsuarioActivity.class);
                 startActivityForResult(intent, 0);
             }
         });

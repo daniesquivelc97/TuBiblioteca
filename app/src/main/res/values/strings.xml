@@ -21,4 +21,5 @@
     <string name="createTitle">Crear prestamo</string>
     <string name="listTitle">Prestamos</string>
     <string name="userTitle">Usuario</string>
+    <string name="libros_prestados">Libros Prestados</string>
 </resources>
