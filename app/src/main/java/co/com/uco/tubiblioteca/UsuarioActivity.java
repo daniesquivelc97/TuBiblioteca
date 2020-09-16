@@ -25,7 +25,7 @@ public class UsuarioActivity extends AppCompatActivity {
 
     private void initComponents() {
         actionBarUtil = new ActionBarUtil(this);
-        actionBarUtil.setToolBar(getString(R.string.libros_prestados));
+        actionBarUtil.setToolBar(getString(R.string.usuario));
     }
 
 

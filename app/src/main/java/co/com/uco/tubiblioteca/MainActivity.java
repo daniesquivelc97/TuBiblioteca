@@ -16,14 +16,18 @@ import android.widget.ViewFlipper;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import co.com.uco.tubiblioteca.utilidad.ActionBarUtil;
+
 public class MainActivity extends AppCompatActivity {
 
+    private ActionBarUtil actionBarUtil;
     ViewFlipper v_flipper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initComponents();
 
         ImageButton btnCreateLoan = findViewById(R.id.nav_createPage);
         ImageButton btnPrestamos = findViewById(R.id.nav_listPage);
@@ -73,4 +77,8 @@ public class MainActivity extends AppCompatActivity {
         v_flipper.setOutAnimation(this, android.R.anim.slide_out_right);
     }
 
+    private void initComponents() {
+        actionBarUtil = new ActionBarUtil(this);
+        actionBarUtil.setToolBar(getString(R.string.home));
+    }
 }
