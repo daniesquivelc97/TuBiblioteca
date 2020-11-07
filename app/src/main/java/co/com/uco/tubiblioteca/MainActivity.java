@@ -16,21 +16,43 @@ import android.widget.ViewFlipper;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import co.com.uco.tubiblioteca.utilidad.ActionBarUtil;
+
 public class MainActivity extends AppCompatActivity {
 
+    private ActionBarUtil actionBarUtil;
     ViewFlipper v_flipper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        initComponents();
 
         ImageButton btnCreateLoan = findViewById(R.id.nav_createPage);
+        ImageButton btnPrestamos = findViewById(R.id.nav_listPage);
+        ImageButton btnUsuario = findViewById(R.id.nav_userPage);
 
         btnCreateLoan.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(view.getContext(), CreateLoanActivity.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
+        btnPrestamos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), ListaLibroActivity.class);
+                startActivityForResult(intent, 0);
+            }
+        });
+
+        btnUsuario.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(view.getContext(), UsuarioActivity.class);
                 startActivityForResult(intent, 0);
             }
         });
@@ -55,4 +77,8 @@ public class MainActivity extends AppCompatActivity {
         v_flipper.setOutAnimation(this, android.R.anim.slide_out_right);
     }
 
+    private void initComponents() {
+        actionBarUtil = new ActionBarUtil(this);
+        actionBarUtil.setToolBar(getString(R.string.home));
+    }
 }

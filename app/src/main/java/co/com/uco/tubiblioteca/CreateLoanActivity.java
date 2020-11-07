@@ -18,7 +18,11 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
+import co.com.uco.tubiblioteca.utilidad.ActionBarUtil;
+
 public class CreateLoanActivity extends AppCompatActivity {
+
+    private ActionBarUtil actionBarUtil;
 
     EditText inputDate;
 
@@ -26,7 +30,7 @@ public class CreateLoanActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_loan);
-
+        initComponents();
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
 
@@ -84,5 +88,9 @@ public class CreateLoanActivity extends AppCompatActivity {
 
     }
 
+    private void initComponents() {
+        actionBarUtil = new ActionBarUtil(this);
+        actionBarUtil.setToolBar(getString(R.string.create_loan));
+    }
 
 }
