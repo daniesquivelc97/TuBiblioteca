@@ -25,4 +25,9 @@
     <string name="usuario">Usuario</string>
     <string name="create_loan">Crear prestamo</string>
     <string name="home">Inicio</string>
+    <string name="Register">Registro</string>
+    <string name="btnCreateUser">Registrar</string>
+    <string name="btnCancel">Cancelar</string>
+    <string name="apellido">Apellido</string>
+    <string name="nombre">Nombre</string>
 </resources>
