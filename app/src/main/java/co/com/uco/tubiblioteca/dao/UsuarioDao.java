@@ -21,7 +21,8 @@ public class UsuarioDao {
         this.context = context;
         sql = context.openOrCreateDatabase(bd, context.MODE_PRIVATE, null);
         sql.execSQL(tabla);
-        usuario = new Usuario(); }
+        usuario = new Usuario();
+    }
 
     public boolean insertUser(Usuario usuario) {
         if(buscar(usuario.getUsuario()) == 0){
