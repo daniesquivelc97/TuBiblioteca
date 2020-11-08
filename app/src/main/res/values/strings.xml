@@ -30,4 +30,5 @@
     <string name="btnCancel">Cancelar</string>
     <string name="apellido">Apellido</string>
     <string name="nombre">Nombre</string>
+    <string name="btnSalir">Salir</string>
 </resources>

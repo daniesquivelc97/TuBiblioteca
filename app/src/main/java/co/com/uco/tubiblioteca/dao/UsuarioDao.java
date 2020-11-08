@@ -67,16 +67,16 @@ public class UsuarioDao {
     }
 
     public int login(String usuario, String password){
-        int a = 0;
+        int auth = 0;
         Cursor cursor = sql.rawQuery("select * from usuario", null);
         if(cursor != null && cursor.moveToFirst()){
             do {
                 if(cursor.getString(1).equals(usuario) && cursor.getString(2).equals(password)){
-                    a++;
+                    auth++;
                 }
             }while (cursor.moveToNext());
         }
-        return a;
+        return auth;
     }
 
     public Usuario getUsuario(String usuario, String password){

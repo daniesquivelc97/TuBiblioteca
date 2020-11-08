@@ -48,11 +48,11 @@ public class LoginActivity extends AppCompatActivity {
                     Usuario ux = usuarioDao.getUsuario(usuario,pass);
                     Toast.makeText(LoginActivity.this, "Ingreso autorizado.", Toast.LENGTH_LONG).show();
                     Intent intent = new Intent(view.getContext(), MainActivity.class);
-                    intent.putExtra("id", ux.getId());
+                    intent.putExtra("Id", ux.getId());
                     startActivityForResult(intent, 0);
                 }
                 else{
-                    Toast.makeText(LoginActivity.this, "El usuario no existe.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(LoginActivity.this, "Usuario y/o contraseña incorrectos.", Toast.LENGTH_LONG).show();
                 }
             }
         });

@@ -1,5 +1,6 @@
 package co.com.uco.tubiblioteca;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -61,6 +62,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 }
                 else if(usuarioDao.insertUser(u)){
                     Toast.makeText(RegisterActivity.this, "Registro exitoso.", Toast.LENGTH_LONG).show();
+                    Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                    startActivity(intent);
                 }
                 else {
                     Toast.makeText(RegisterActivity.this, "Usuario ya registrado.", Toast.LENGTH_LONG).show();
