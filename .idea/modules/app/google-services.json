@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "340391803475",
+    "firebase_url": "https://biblioteca-92297.firebaseio.com",
+    "project_id": "biblioteca-92297",
+    "storage_bucket": "biblioteca-92297.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:340391803475:android:78daaa44aac6597ab124a6",
+        "android_client_info": {
+          "package_name": "co.com.uco.tubiblioteca"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "340391803475-khte48u6olmfgrb487rgt5d4rlr6qp4o.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "co.com.uco.tubiblioteca",
+            "certificate_hash": "c23cb9b31eab07f61c83cec22417a96821ff3ed0"
+          }
+        },
+        {
+          "client_id": "340391803475-plpt106s5lh3dbrmbt94fct5u5cnn8p3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBkziJsFLEYcDZ7o4ccgYeCv-MgDh2C56I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "340391803475-plpt106s5lh3dbrmbt94fct5u5cnn8p3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
