@@ -2,12 +2,12 @@ package co.com.uco.tubiblioteca.utilidad;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ActionBarUtil {
+public class ActionBarUtil2 {
 
     private final AppCompatActivity appCompatActivity;
 
 
-    public ActionBarUtil(AppCompatActivity appCompatActivity) {
+    public ActionBarUtil2(AppCompatActivity appCompatActivity) {
         this.appCompatActivity = appCompatActivity;
     }
 

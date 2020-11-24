@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".RegisterActivity"></activity>
-        <activity android:name=".ListaLibroActivity" />
+        <activity android:name=".ListaLibroActivity"> </activity>
         <activity android:name=".CreateLoanActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -31,8 +31,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".UsuarioActivity" />
+        <activity android:name=".MainActivity"> </activity>
+        <activity android:name=".UsuarioActivity"> </activity>
     </application>
 
 </manifest>

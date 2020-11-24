@@ -1,6 +1,7 @@
 package co.com.uco.tubiblioteca;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Database;
 
 import android.os.Bundle;
 import android.widget.ListView;
@@ -11,8 +12,10 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.com.uco.tubiblioteca.adapter.LibroAdapter;
-import co.com.uco.tubiblioteca.dto.Libro;
+import co.com.uco.tubiblioteca.entities.Book;
+import co.com.uco.tubiblioteca.persisntence.room.DataBaseHelper;
 import co.com.uco.tubiblioteca.utilidad.ActionBarUtil;
+import co.com.uco.tubiblioteca.utilidad.Configuracion;
 
 public class ListaLibroActivity extends AppCompatActivity {
 
@@ -20,6 +23,9 @@ public class ListaLibroActivity extends AppCompatActivity {
     @BindView(R.id.LVListaLibros)
     public ListView listViewLibros;
     private LibroAdapter libroAdapter;
+    private List<Book> listaLibros;
+    private DataBaseHelper db;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,15 +39,12 @@ public class ListaLibroActivity extends AppCompatActivity {
         ButterKnife.bind(this);
         actionBarUtil = new ActionBarUtil(this);
         actionBarUtil.setToolBar(getString(R.string.libros_prestados));
+        db = DataBaseHelper.getDBMainThread(this);
+
     }
 
     private void loadInfo(){
-        List<Libro> listaLibros = new ArrayList<>();
-        listaLibros.add(new Libro("Libro 1", "Descripción libro 1"));
-        listaLibros.add(new Libro("Libro 2", "Descripción libro 2"));
-        listaLibros.add(new Libro("Libro 3", "Descripción libro 3"));
-        listaLibros.add(new Libro("Libro 4", "Descripción libro 4"));
-        listaLibros.add(new Libro("Libro 5", "Descripción libro 5"));
+        listaLibros = db.getBookDAO().findByNameUser(Configuracion.getUsuario().getNombre());
         libroAdapter = new LibroAdapter(this, listaLibros);
         listViewLibros.setAdapter(libroAdapter);
     }

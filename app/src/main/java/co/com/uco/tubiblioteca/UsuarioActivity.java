@@ -9,23 +9,26 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
-import co.com.uco.tubiblioteca.dao.UsuarioDao;
-import co.com.uco.tubiblioteca.dto.Usuario;
 import co.com.uco.tubiblioteca.utilidad.ActionBarUtil;
+import co.com.uco.tubiblioteca.utilidad.Configuracion;
 
 public class UsuarioActivity extends AppCompatActivity {
 
     private ActionBarUtil actionBarUtil;
     Button btnSalir;
+    @BindView(R.id.txtNombreUsuario)
+    public TextView txtNombreUsuario;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_usuario);
+        ButterKnife.bind(this);
         initComponents();
         btnSalir = (Button) findViewById(R.id.btnSalir);
-
         btnSalir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -42,6 +45,7 @@ public class UsuarioActivity extends AppCompatActivity {
     private void initComponents() {
         actionBarUtil = new ActionBarUtil(this);
         actionBarUtil.setToolBar(getString(R.string.usuario));
+        txtNombreUsuario.setText(Configuracion.getUsuario().getUsuario());
     }
 
     @Override

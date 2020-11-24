@@ -1,22 +1,17 @@
 package co.com.uco.tubiblioteca;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Toast;
-import android.widget.ToggleButton;
 
 import co.com.uco.tubiblioteca.dao.UsuarioDao;
 import co.com.uco.tubiblioteca.dto.Usuario;
+import co.com.uco.tubiblioteca.utilidad.Configuracion;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -47,6 +42,7 @@ public class LoginActivity extends AppCompatActivity {
                 else if(usuarioDao.login(usuario,pass) == 1){
                     Usuario ux = usuarioDao.getUsuario(usuario,pass);
                     Toast.makeText(LoginActivity.this, "Ingreso autorizado.", Toast.LENGTH_LONG).show();
+                    Configuracion.setUsuario(ux);
                     Intent intent = new Intent(view.getContext(), MainActivity.class);
                     intent.putExtra("Id", ux.getId());
                     startActivityForResult(intent, 0);

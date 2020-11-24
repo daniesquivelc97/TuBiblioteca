@@ -7,23 +7,22 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import co.com.uco.tubiblioteca.R;
-import co.com.uco.tubiblioteca.dto.Libro;
+import co.com.uco.tubiblioteca.entities.Book;
 
 public class LibroAdapter extends BaseAdapter {
 
     private final Context context;
     private final LayoutInflater inflater;
-    private List<Libro> listaLibrosOut;
-    private List<Libro> listaLibrosIn;
+    private List<Book> listaLibrosOut;
+    private List<Book> listaLibrosIn;
 
-    public LibroAdapter(Context context, List<Libro> listaLibros) {
+    public LibroAdapter(Context context, List<Book> listaLibros) {
         this.context = context;
         listaLibrosOut = listaLibros;
         listaLibrosIn = listaLibros;
@@ -56,7 +55,7 @@ public class LibroAdapter extends BaseAdapter {
             convertView.setTag(holder);
         }
         holder.txtNombreLibro.setText(listaLibrosOut.get(i).getNombre());
-        holder.txtDescripcionLibro.setText(listaLibrosOut.get(i).getDescripcion());
+        holder.txtDescripcionLibro.setText(listaLibrosOut.get(i).getLibro());
         return convertView;
     }
 
